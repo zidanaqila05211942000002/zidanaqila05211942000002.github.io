@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <title>5211942000002 - MOCHAMAD ZIDAN AQILA KAMIL</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <style>
+        .label {
+            float: left;
+            width: 120px;
+        }
+
+        .infobox {
+            width: 200px;
+        }
+
+        .error {
+            color: rgb(132, 243, 142);
+            padding-left: 10px;
+        }
+
+        .submit {
+            margin-left: 125px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <form id="signup" method="post" action="">
+            <div>
+                <span class="label">Enter Shoe Size </span>
+                <input type="text" class="infobox" name="age" />
+                <span class="error"> Only numericals allowed</span></div>
+            <script>
+                $(document).ready(function() { //occurs when the DOM (document object model) has been loaded
+                    $('.error').hide(); //hides the selected elements
+                    $('.submit').click(function (event) { //triggers the click event, or attaches a function to run when a click event occurs
+                        var data = $('.infobox').val(); //returns the value of text box with class name infobox
+                        var len = data.length; //return the number of characters in infobox in a string
+                        var c; //store each character in infobox string
+                        for (var i = 0; i < len; i++) { //loops can execute a block of code a number of times
+                            c = data.charAt(i).charCodeAt(0); //the charAt returns the character at the specified index in a string. //charcodeAt Return the Unicode of the first character in a string
+                            if (c < 48 || c > 57) { //Use if to specify a block of code to be executed, if a specified condition (c<48 || c>57) is true
+                                $('.error').show(); //shows the hidden, selected elements
+                                event.preventDefault(); //cancels the event if it is cancelable, meaning that the default action that belongs to the event will not occur
+                                break; // The break statement used to jump out of a loop and breaks the loop and continues executing the code after the loop  
+                            }
+                            else { //Use else to specify a block of code to be executed, if the same condition is false
+
+                                $('.error').hide(); //hides the selected elements
+                            }
+                        }
+                    });
+                }); 
+            </script>
+            <input class="submit" type="submit" value="Submit">
+        </form>
+    </div>
+</body>
